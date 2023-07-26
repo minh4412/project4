@@ -15,30 +15,32 @@ $october = 0;
 $november = 0;
 $december = 0;
 foreach ($listbill as $bill) {
-    if((int)date('m',strtotime($bill->order_date)) == 1 && (int)date('Y',time()) == (int)date('Y',strtotime($bill->order_date))){
-        $january += $bill->total_price;
-    }elseif((int)date('m',strtotime($bill->order_date)) == 2 && (int)date('Y',time()) == (int)date('Y',strtotime($bill->order_date))){
-        $february += $bill->total_price;
-    }elseif((int)date('m',strtotime($bill->order_date)) == 3 && (int)date('Y',time()) == (int)date('Y',strtotime($bill->order_date))){
-        $march += $bill->total_price;
-    }elseif((int)date('m',strtotime($bill->order_date)) == 4 && (int)date('Y',time()) == (int)date('Y',strtotime($bill->order_date))){
-        $april += $bill->total_price;
-    }elseif((int)date('m',strtotime($bill->order_date)) == 5 && (int)date('Y',time()) == (int)date('Y',strtotime($bill->order_date))){
-        $may += $bill->total_price;
-    }elseif((int)date('m',strtotime($bill->order_date)) == 6 && (int)date('Y',time()) == (int)date('Y',strtotime($bill->order_date))){
-        $june += $bill->total_price;
-    }elseif((int)date('m',strtotime($bill->order_date)) == 7 && (int)date('Y',time()) == (int)date('Y',strtotime($bill->order_date))){
-        $july += $bill->total_price;
-    }elseif((int)date('m',strtotime($bill->order_date)) == 8 && (int)date('Y',time()) == (int)date('Y',strtotime($bill->order_date))){
-        $august += $bill->total_price;
-    }elseif((int)date('m',strtotime($bill->order_date)) == 9 && (int)date('Y',time()) == (int)date('Y',strtotime($bill->order_date))){
-        $september += $bill->total_price;
-    }elseif((int)date('m',strtotime($bill->order_date)) == 10 && (int)date('Y',time()) == (int)date('Y',strtotime($bill->order_date))){
-        $october += $bill->total_price;
-    }elseif((int)date('m',strtotime($bill->order_date)) == 11 && (int)date('Y',time()) == (int)date('Y',strtotime($bill->order_date))){
-        $november += $bill->total_price;
-    }elseif((int)date('m',strtotime($bill->order_date)) == 12 && (int)date('Y',time()) == (int)date('Y',strtotime($bill->order_date))){
-        $december += $bill->total_price;
+    if($bill ->status == 1){
+        if((int)date('m',strtotime($bill->order_date)) == 1 && (int)date('Y',time()) == (int)date('Y',strtotime($bill->order_date))){
+            $january += $bill->total_price;
+        }elseif((int)date('m',strtotime($bill->order_date)) == 2 && (int)date('Y',time()) == (int)date('Y',strtotime($bill->order_date))){
+            $february += $bill->total_price;
+        }elseif((int)date('m',strtotime($bill->order_date)) == 3 && (int)date('Y',time()) == (int)date('Y',strtotime($bill->order_date))){
+            $march += $bill->total_price;
+        }elseif((int)date('m',strtotime($bill->order_date)) == 4 && (int)date('Y',time()) == (int)date('Y',strtotime($bill->order_date))){
+            $april += $bill->total_price;
+        }elseif((int)date('m',strtotime($bill->order_date)) == 5 && (int)date('Y',time()) == (int)date('Y',strtotime($bill->order_date))){
+            $may += $bill->total_price;
+        }elseif((int)date('m',strtotime($bill->order_date)) == 6 && (int)date('Y',time()) == (int)date('Y',strtotime($bill->order_date))){
+            $june += $bill->total_price;
+        }elseif((int)date('m',strtotime($bill->order_date)) == 7 && (int)date('Y',time()) == (int)date('Y',strtotime($bill->order_date))){
+            $july += $bill->total_price;
+        }elseif((int)date('m',strtotime($bill->order_date)) == 8 && (int)date('Y',time()) == (int)date('Y',strtotime($bill->order_date))){
+            $august += $bill->total_price;
+        }elseif((int)date('m',strtotime($bill->order_date)) == 9 && (int)date('Y',time()) == (int)date('Y',strtotime($bill->order_date))){
+            $september += $bill->total_price;
+        }elseif((int)date('m',strtotime($bill->order_date)) == 10 && (int)date('Y',time()) == (int)date('Y',strtotime($bill->order_date))){
+            $october += $bill->total_price;
+        }elseif((int)date('m',strtotime($bill->order_date)) == 11 && (int)date('Y',time()) == (int)date('Y',strtotime($bill->order_date))){
+            $november += $bill->total_price;
+        }elseif((int)date('m',strtotime($bill->order_date)) == 12 && (int)date('Y',time()) == (int)date('Y',strtotime($bill->order_date))){
+            $december += $bill->total_price;
+        };
     };
 } 
 $january1 = 0;
@@ -54,30 +56,32 @@ $october1 = 0;
 $november1 = 0;
 $december1 = 0;
 foreach ($listbill as $bill) {
-    if((int)date('m',strtotime($bill->order_date)) == 1 && (int)date('Y',time()) == ((int)date('Y',strtotime($bill->order_date))-1)){
-        $january1 += $bill->total_price;
-    }elseif((int)date('m',strtotime($bill->order_date)) == 2 && (int)date('Y',time()) == ((int)date('Y',strtotime($bill->order_date))-1)){
-        $february1 += $bill->total_price;
-    }elseif((int)date('m',strtotime($bill->order_date)) == 3 && (int)date('Y',time()) == ((int)date('Y',strtotime($bill->order_date))-1)){
-        $march1 += $bill->total_price;
-    }elseif((int)date('m',strtotime($bill->order_date)) == 4 && (int)date('Y',time()) == ((int)date('Y',strtotime($bill->order_date))-1)){
-        $april1 += $bill->total_price;
-    }elseif((int)date('m',strtotime($bill->order_date)) == 5 && (int)date('Y',time()) == ((int)date('Y',strtotime($bill->order_date))-1)){
-        $may1 += $bill->total_price;
-    }elseif((int)date('m',strtotime($bill->order_date)) == 6 && (int)date('Y',time()) == ((int)date('Y',strtotime($bill->order_date))-1)){
-        $june1 += $bill->total_price;
-    }elseif((int)date('m',strtotime($bill->order_date)) == 7 && (int)date('Y',time()) == ((int)date('Y',strtotime($bill->order_date))-1)){
-        $july1 += $bill->total_price;
-    }elseif((int)date('m',strtotime($bill->order_date)) == 8 && (int)date('Y',time()) == ((int)date('Y',strtotime($bill->order_date))-1)){
-        $august1 += $bill->total_price;
-    }elseif((int)date('m',strtotime($bill->order_date)) == 9 && (int)date('Y',time()) == ((int)date('Y',strtotime($bill->order_date))-1)){
-        $september1 += $bill->total_price;
-    }elseif((int)date('m',strtotime($bill->order_date)) == 10 && (int)date('Y',time()) == ((int)date('Y',strtotime($bill->order_date))-1)){
-        $october1 += $bill->total_price;
-    }elseif((int)date('m',strtotime($bill->order_date)) == 11 && (int)date('Y',time()) == ((int)date('Y',strtotime($bill->order_date))-1)){
-        $november1 += $bill->total_price;
-    }elseif((int)date('m',strtotime($bill->order_date)) == 12 && (int)date('Y',time()) == ((int)date('Y',strtotime($bill->order_date))-1)){
-        $december1 += $bill->total_price;
+    if($bill ->status == 1){
+        if((int)date('m',strtotime($bill->order_date)) == 1 && (int)date('Y',time()) == ((int)date('Y',strtotime($bill->order_date))-1)){
+            $january1 += $bill->total_price;
+        }elseif((int)date('m',strtotime($bill->order_date)) == 2 && (int)date('Y',time()) == ((int)date('Y',strtotime($bill->order_date))-1)){
+            $february1 += $bill->total_price;
+        }elseif((int)date('m',strtotime($bill->order_date)) == 3 && (int)date('Y',time()) == ((int)date('Y',strtotime($bill->order_date))-1)){
+            $march1 += $bill->total_price;
+        }elseif((int)date('m',strtotime($bill->order_date)) == 4 && (int)date('Y',time()) == ((int)date('Y',strtotime($bill->order_date))-1)){
+            $april1 += $bill->total_price;
+        }elseif((int)date('m',strtotime($bill->order_date)) == 5 && (int)date('Y',time()) == ((int)date('Y',strtotime($bill->order_date))-1)){
+            $may1 += $bill->total_price;
+        }elseif((int)date('m',strtotime($bill->order_date)) == 6 && (int)date('Y',time()) == ((int)date('Y',strtotime($bill->order_date))-1)){
+            $june1 += $bill->total_price;
+        }elseif((int)date('m',strtotime($bill->order_date)) == 7 && (int)date('Y',time()) == ((int)date('Y',strtotime($bill->order_date))-1)){
+            $july1 += $bill->total_price;
+        }elseif((int)date('m',strtotime($bill->order_date)) == 8 && (int)date('Y',time()) == ((int)date('Y',strtotime($bill->order_date))-1)){
+            $august1 += $bill->total_price;
+        }elseif((int)date('m',strtotime($bill->order_date)) == 9 && (int)date('Y',time()) == ((int)date('Y',strtotime($bill->order_date))-1)){
+            $september1 += $bill->total_price;
+        }elseif((int)date('m',strtotime($bill->order_date)) == 10 && (int)date('Y',time()) == ((int)date('Y',strtotime($bill->order_date))-1)){
+            $october1 += $bill->total_price;
+        }elseif((int)date('m',strtotime($bill->order_date)) == 11 && (int)date('Y',time()) == ((int)date('Y',strtotime($bill->order_date))-1)){
+            $november1 += $bill->total_price;
+        }elseif((int)date('m',strtotime($bill->order_date)) == 12 && (int)date('Y',time()) == ((int)date('Y',strtotime($bill->order_date))-1)){
+            $december1 += $bill->total_price;
+        };
     };
 }
 $january2 = 0;
@@ -93,30 +97,32 @@ $october2 = 0;
 $november2 = 0;
 $december2 = 0;
 foreach ($listbill as $bill) {
-    if((int)date('m',strtotime($bill->order_date)) == 1 && (int)date('Y',time()) == ((int)date('Y',strtotime($bill->order_date))-2)){
-        $january2 += $bill->total_price;
-    }elseif((int)date('m',strtotime($bill->order_date)) == 2 && (int)date('Y',time()) == ((int)date('Y',strtotime($bill->order_date))-2)){
-        $february2 += $bill->total_price;
-    }elseif((int)date('m',strtotime($bill->order_date)) == 3 && (int)date('Y',time()) == ((int)date('Y',strtotime($bill->order_date))-2)){
-        $march2 += $bill->total_price;
-    }elseif((int)date('m',strtotime($bill->order_date)) == 4 && (int)date('Y',time()) == ((int)date('Y',strtotime($bill->order_date))-2)){
-        $april2 += $bill->total_price;
-    }elseif((int)date('m',strtotime($bill->order_date)) == 5 && (int)date('Y',time()) == ((int)date('Y',strtotime($bill->order_date))-2)){
-        $may2 += $bill->total_price;
-    }elseif((int)date('m',strtotime($bill->order_date)) == 6 && (int)date('Y',time()) == ((int)date('Y',strtotime($bill->order_date))-2)){
-        $june2 += $bill->total_price;
-    }elseif((int)date('m',strtotime($bill->order_date)) == 7 && (int)date('Y',time()) == ((int)date('Y',strtotime($bill->order_date))-2)){
-        $july2 += $bill->total_price;
-    }elseif((int)date('m',strtotime($bill->order_date)) == 8 && (int)date('Y',time()) == ((int)date('Y',strtotime($bill->order_date))-2)){
-        $august2 += $bill->total_price;
-    }elseif((int)date('m',strtotime($bill->order_date)) == 9 && (int)date('Y',time()) == ((int)date('Y',strtotime($bill->order_date))-2)){
-        $september2 += $bill->total_price;
-    }elseif((int)date('m',strtotime($bill->order_date)) == 10 && (int)date('Y',time()) == ((int)date('Y',strtotime($bill->order_date))-2)){
-        $october2 += $bill->total_price;
-    }elseif((int)date('m',strtotime($bill->order_date)) == 11 && (int)date('Y',time()) == ((int)date('Y',strtotime($bill->order_date))-2)){
-        $november2 += $bill->total_price;
-    }elseif((int)date('m',strtotime($bill->order_date)) == 12 && (int)date('Y',time()) == ((int)date('Y',strtotime($bill->order_date))-2)){
-        $december2 += $bill->total_price;
+    if($bill ->status == 1){
+        if((int)date('m',strtotime($bill->order_date)) == 1 && (int)date('Y',time()) == ((int)date('Y',strtotime($bill->order_date))-2)){
+            $january2 += $bill->total_price;
+        }elseif((int)date('m',strtotime($bill->order_date)) == 2 && (int)date('Y',time()) == ((int)date('Y',strtotime($bill->order_date))-2)){
+            $february2 += $bill->total_price;
+        }elseif((int)date('m',strtotime($bill->order_date)) == 3 && (int)date('Y',time()) == ((int)date('Y',strtotime($bill->order_date))-2)){
+            $march2 += $bill->total_price;
+        }elseif((int)date('m',strtotime($bill->order_date)) == 4 && (int)date('Y',time()) == ((int)date('Y',strtotime($bill->order_date))-2)){
+            $april2 += $bill->total_price;
+        }elseif((int)date('m',strtotime($bill->order_date)) == 5 && (int)date('Y',time()) == ((int)date('Y',strtotime($bill->order_date))-2)){
+            $may2 += $bill->total_price;
+        }elseif((int)date('m',strtotime($bill->order_date)) == 6 && (int)date('Y',time()) == ((int)date('Y',strtotime($bill->order_date))-2)){
+            $june2 += $bill->total_price;
+        }elseif((int)date('m',strtotime($bill->order_date)) == 7 && (int)date('Y',time()) == ((int)date('Y',strtotime($bill->order_date))-2)){
+            $july2 += $bill->total_price;
+        }elseif((int)date('m',strtotime($bill->order_date)) == 8 && (int)date('Y',time()) == ((int)date('Y',strtotime($bill->order_date))-2)){
+            $august2 += $bill->total_price;
+        }elseif((int)date('m',strtotime($bill->order_date)) == 9 && (int)date('Y',time()) == ((int)date('Y',strtotime($bill->order_date))-2)){
+            $september2 += $bill->total_price;
+        }elseif((int)date('m',strtotime($bill->order_date)) == 10 && (int)date('Y',time()) == ((int)date('Y',strtotime($bill->order_date))-2)){
+            $october2 += $bill->total_price;
+        }elseif((int)date('m',strtotime($bill->order_date)) == 11 && (int)date('Y',time()) == ((int)date('Y',strtotime($bill->order_date))-2)){
+            $november2 += $bill->total_price;
+        }elseif((int)date('m',strtotime($bill->order_date)) == 12 && (int)date('Y',time()) == ((int)date('Y',strtotime($bill->order_date))-2)){
+            $december2 += $bill->total_price;
+        };
     };
 }
 $listtopbook = [];
@@ -251,7 +257,7 @@ foreach ($listdtbill as $dtbill) {
                 </div>
             </div>
         </div>
-        <div class="col-lg-4" style="flex: unset !important; max-width: unset !important;">
+        <div class="col-lg-4" style="display: none !important;">
             <div class="card card-chart">
                 <div class="card-header">
                     <h5 class="card-category">Completed Tasks</h5>
@@ -421,7 +427,7 @@ foreach ($listdtbill as $dtbill) {
         <div class="col-lg-6 col-md-12" style="flex: unset !important; max-width: unset !important;">
             <div class="card ">
                 <div class="card-header">
-                    <h4 class="card-title">Number of books in stock</h4>
+                    <h4 class="card-title">Book is out of stock</h4>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive" style="max-height: 500px !important">
@@ -475,11 +481,86 @@ foreach ($listdtbill as $dtbill) {
                                       {{$book->major_name}}
                                     </td>
                                     <td>
-                                      {{$book->price}}
+                                      <p style="font-weight: 600;color: red;font-style: italic;">{{number_format($book->price)}}đ</p>
                                     </td>
                                     <td class="text-center">
                                         {{$book->qty}}
                                     </td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-12" style="flex: unset !important; max-width: unset !important;">
+            <div class="card ">
+                <div class="card-header">
+                    <h4 class="card-title">Top best selling books last month</h4>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive" style="max-height: 500px !important">
+                        <table class="table tablesorter" id="">
+                            <thead class=" text-primary">
+                                <tr>
+                                    <th>
+                                        Book Name
+                                    </th>
+                                    <th>
+                                        Category
+                                    </th>
+                                    <th>
+                                        Subject
+                                    </th>
+                                    <th>
+                                        Major
+                                    </th>
+                                    <th>
+                                        Price
+                                    </th>
+                                    <th class="text-center">
+                                        Number of books sold
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php arsort($listtopbook1); ?>
+                                @foreach($listtopbook1 as $key => $value)
+                                <tr>
+                                    @foreach($listbook2 as $book)
+                                    @if($book->book_id == $key)
+                                    <td>
+                                        {{$book->book_name}}
+                                    </td>
+                                    <td>
+                                        {{$book->category_name}}
+                                    </td>
+                                    <td>
+                                        <?php 
+                                        $a=[]; 
+                                        foreach ($listSubject as $sj): 
+                                            if($book ->subject_id == $sj ->subject_id){
+                                                $a[]=$sj->name;
+                                            }
+                                        endforeach;
+                                        if(count($a)>0){
+                                            echo $a[0];
+                                        }else{
+                                            echo "Not in any subject";
+                                        } ?>
+                                    </td>
+                                    <td>
+                                      {{$book->major_name}}
+                                    </td>
+                                    <td>
+                                        <p style="font-weight: 600;color: red;font-style: italic;">{{number_format($book->price)}}đ</p>
+                                    </td>
+                                    <td class="text-center">
+                                        {{$value}}
+                                    </td>
+                                    @endif
+                                    @endforeach
                                 </tr>
                                 @endforeach
                             </tbody>

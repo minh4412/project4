@@ -11,16 +11,4 @@ class Grade extends Model
     protected $table='class';
     public $timestamps = false;
     public $primaryKey = 'class_id';
-
-    // public function course() {
-    // 	return $this->belongsTo(Course::class, 'course_id', 'course_id');
-    // }
-
-    // public function students() {
-    // 	return $this->hasMany(Student::class, 'class_id', 'class_id');
-    // }
-
-    // public function subjects() {
-    // 	return $this->hasMany(Subject::class, 'class_id', 'class_id');
-    // }
 }

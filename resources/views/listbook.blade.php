@@ -120,7 +120,7 @@
                             if(count($a)>0){
                                 echo $a[0];
                             }else{
-                                echo "Không";
+                                echo "Not in any subject";
                             } ?>
                             </p>
                     </div>

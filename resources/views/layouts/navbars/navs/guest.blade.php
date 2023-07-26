@@ -31,11 +31,12 @@
                     <a href="{{ route('login') }}" class="nav-link">
                         <i class="tim-icons icon-single-02"></i> {{ _('Login') }}
                     </a>
-                </li> --}}<li class="nav-item">
+                </li> --}}
+                {{-- <li class="nav-item">
                     <a href="#" class="nav-link text-primary">
                         <i class="tim-icons icon-minimal-left"></i> {{ _('Back to Dashboard') }}
                     </a>
-                </li>
+                </li> --}}
                 <li class="nav-item ">
                     <a href="{{ route('login') }}" class="nav-link">
                         <i class="tim-icons icon-laptop"></i> {{ _('Login Admin') }}

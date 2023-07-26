@@ -14,8 +14,13 @@ class StatisticalController extends Controller
         $listbill = Bill::all();
         $listdtbill = BillDetail::all();
         $listSubject = Subject::all();
+        $listbook2 = Book::join('category', 'book.category_id', "=", 'category.category_id')
+                            ->join('major', 'book.major_id', "=", 'major.major_id')
+                            ->orderBy('book_id', 'DESC')
+                            ->get();
         $listbook = Book::join('category', 'book.category_id', "=", 'category.category_id')
                         ->join('major', 'book.major_id', "=", 'major.major_id')
+                        ->where('qty', '<', 21)
                         ->orderBy('book_id', 'DESC')
                         ->get();
         return view('dashboard',[
@@ -23,6 +28,7 @@ class StatisticalController extends Controller
             "listdtbill" => $listdtbill,
             "listbook" => $listbook,
             'listSubject' => $listSubject,
+            'listbook2' => $listbook2,
         ]);
     }
 }

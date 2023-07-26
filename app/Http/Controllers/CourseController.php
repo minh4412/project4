@@ -90,7 +90,7 @@ class CourseController extends Controller
         $course->name = $name;
         $course->content = $content;
         $course->save();
-        return redirect(route('course.index'));
+        return redirect(route('course.index'))->with("editcourse", "1");
     }
 
     /**

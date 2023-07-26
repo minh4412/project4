@@ -3,6 +3,7 @@
         <thead class=" text-primary">
             <tr>
                 <th scope="col">Book</th>
+                <th scope="col">Image</th>
                 <th scope="col">Quantity</th>
                 <th scope="col">Price</th>
                 <th scope="col">TotalPrice</th>
@@ -16,9 +17,14 @@
             <tr>
                 <td>{{ $cart["productInfo"]->book_name }}</td>
                 <td>
+                    <div class="img-book2">
+                        <img src="{{ asset('uploads/books/'.$cart["productInfo"]->image)}}" alt="">
+                    </div>
+                </td>
+                <td>
                     <div class="buttons_added">
                         <input class="minus is-form" type="button" value="-">
-                        <input aria-label="quantity" class="input-qty" id="input-qty-{{$cart["productInfo"]->book_id}}" name="qty" type="number" value="{{ $cart["qty"] }}" data-id="{{$cart["productInfo"]->book_id}}" data-val="{{ $cart["qty"] }}">
+                        <input aria-label="quantity" class="input-qty" id="input-qty-{{$cart["productInfo"]->book_id}}" name="qty" type="number" value="{{ ($cart["qty"] > 0) ? $cart["qty"] : 1 }}" data-id="{{$cart["productInfo"]->book_id}}" data-val="{{ ($cart["qty"] > 0) ? $cart["qty"] : 1 }}">
                         <input class="plus is-form" type="button" value="+">
                     </div>
                 </td>
@@ -46,8 +52,19 @@
 </div>
 @if(Session("cart") != null)
 <div style="display: flex;justify-content: center;padding-top: 40px;">
-    <button style="padding: 10px 40px;color: white;" class="btn btn-sm btn-primary" id="search-button" data-toggle="modal" data-target="#popupOrder">
+    <form action="{{url('/epayment')}}" method="POST">
+        @csrf
+        <button type="submit" name="redirect" style="padding: 10px 40px;color: white;margin-right:40px" class="btn btn-sm btn-primary">
+            {{ __('E-payment') }}
+        </button>
+    </form>
+    <button style="padding: 10px 40px;color: white;margin-left:40px" class="btn btn-sm btn-primary" id="search-button" data-toggle="modal" data-target="#popupOrder">
         {{ __('Order confirmation') }}
     </button>
 </div>
+@endif
+@if(Session("success") != null)
+<input type="hidden" id="hdnSession" data-value="0" />
+@elseif(Session("fail") != null)
+<input type="hidden" id="hdnSession" data-value="1" />
 @endif

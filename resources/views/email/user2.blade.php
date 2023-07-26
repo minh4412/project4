@@ -1,7 +1,7 @@
 <x-mail::message>
 # Notification mail
 
-You have a new unprocessed order.
+Your order has been cancelled by admin
 
 {{-- <x-mail::button :url="''">
 Button Text

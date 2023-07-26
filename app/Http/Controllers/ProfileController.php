@@ -11,7 +11,8 @@ class ProfileController extends Controller
     public function index()
     {
         $id = session('id');
-        $userinfo = Admin::find($id);
+        $userinfo = Admin::join("class", "users.class_id", "=" , "class.class_id")
+                            ->find($id);
     	return view('profile.profile', [
             "userinfo" => $userinfo,
             "search" => "",

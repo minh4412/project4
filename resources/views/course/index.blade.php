@@ -9,9 +9,9 @@
 					<div class="col-8">
 						<h4 class="card-title">List Course</h4>
 					</div>
-					<div class="col-4 text-right">
+					{{-- <div class="col-4 text-right">
 						<a href="{{ route('course.create') }}" class="btn btn-sm btn-primary">Add Course</a>
-					</div>
+					</div> --}}
 				</div>
 			</div>
 			<div class="card-body">
@@ -76,4 +76,7 @@
 		</div>
 	</div>
 </div>
+@if(Session("editcourse") != null)
+<input type="hidden" id="editcourse" data-value="1" />
+@endif
 @endsection

@@ -9,19 +9,18 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class SendAdmin extends Mailable
+class SendToUser2 extends Mailable
 {
     use Queueable, SerializesModels;
-    
+
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public $detail;
-    public function __construct($detail)
+    public function __construct()
     {
-        $this->detail = $detail;
+        //
     }
 
     /**
@@ -32,7 +31,7 @@ class SendAdmin extends Mailable
     public function envelope()
     {
         return new Envelope(
-            subject: 'Notification email',
+            subject: 'Send To User2',
         );
     }
 
@@ -44,7 +43,7 @@ class SendAdmin extends Mailable
     public function content()
     {
         return new Content(
-            markdown: 'email.index',
+            markdown: 'email.user2',
         );
     }
 

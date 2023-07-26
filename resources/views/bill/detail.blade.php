@@ -63,6 +63,7 @@
 						<thead class=" text-primary">
 							<tr>
 								<th scope="col">NO</th>
+								<th scope="col">Image</th>
 								<th scope="col">Book</th>
 								<th scope="col">Quantity</th>
 								<th scope="col">Price</th>
@@ -73,10 +74,15 @@
 							<?php $i=1; foreach ($listDetailBill as $detail): ?>
 							<tr>
 								<td>{{ $i++ }}</td>
+								<td>
+                                    <div class="img-book2">
+										<img src="{{ asset('uploads/books/'.$detail ->image)}}" alt="">
+                                    </div>
+								</td>
 								<td>{{ $detail -> book_name }}</td>
 								<td>{{ $detail -> qty_bill }}</td>
-								<td>{{ number_format($detail -> book_price) }}đ</td>
-								<td>{{ number_format(($detail -> book_price)*($detail -> qty_bill)) }}đ</td>
+								<td><p style="font-weight: 600;color: red;font-style: italic;">{{ number_format($detail -> book_price) }}đ</p></td>
+								<td><p style="font-weight: 600;color: red;font-style: italic;">{{ number_format(($detail -> book_price)*($detail -> qty_bill)) }}đ</p></td>
 							</tr>
 							<?php endforeach ?>
 						</tbody>
@@ -84,6 +90,9 @@
                     {{ $listDetailBill->appends([
                         'search' => $search,
                     ])->links() }}
+					<div style="padding-top: 30px; display: flex; flex-direction: column;">
+						<div style="display: flex;"> Total Price : &nbsp<p style="font-weight: 600;color: red;font-style: italic;">{{ number_format($bill->total_price)}}đ</p></div>
+					</div>
 				</div>
 
 			</div>

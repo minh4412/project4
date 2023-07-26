@@ -9,9 +9,9 @@
 					<div class="col-8">
 						<h4 class="card-title">List Class</h4>
 					</div>
-					<div class="col-4 text-right">
+					{{-- <div class="col-4 text-right">
 						<a href="{{ route('class.create') }}" class="btn btn-sm btn-primary">Add Class</a>
-					</div>
+					</div> --}}
 				</div>
 			</div>
 			<div class="card-body">
@@ -31,7 +31,7 @@
 							<tr>
 								<td>{{ $class -> class_id }}</td>
 								<td>
-									<a href="#">{{ $class -> code }}</a>
+									<a href="{{ route('class.edit', $class ->class_id) }}">{{ $class -> code }}</a>
 								</td>
 								<td>{{ $class -> name }}</td>
 								<td class="text-right">
@@ -44,11 +44,11 @@
 										<div
 											class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
 											<a class="dropdown-item" href="{{ route('class.edit', $class ->class_id) }}">Edit</a>
-											<form action="{{ route('class.destroy', $class ->class_id) }}" method="post">
+											{{-- <form action="{{ route('class.destroy', $class ->class_id) }}" method="post">
                                                 @csrf
                                                 @METHOD('DELETE')
                                                 <input type="submit" class="dropdown-item" value="Delete">
-                                            </form>
+                                            </form> --}}
 										</div>
 									</div>
 								</td>
@@ -76,4 +76,7 @@
 		</div>
 	</div>
 </div>
+@if(Session("editclass") != null)
+<input type="hidden" id="editclass" data-value="1" />
+@endif
 @endsection

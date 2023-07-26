@@ -39,12 +39,7 @@ class StudentController extends Controller
      */
     public function create()
     {
-        $liststudent = Student::all();
-        $listgrade = Grade::all();
-        return view("student.create", [
-            "ListGrade" => $listgrade,
-            "ListStudent" => $liststudent,
-        ]);
+
     }
 
     /**
@@ -55,19 +50,7 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        $name = $request->get('name');
-        $date = $request->get('birthdate');
-        $idGrade = $request->get('idGrade');
-        $gender = $request->get('gender');
-        $available = 0;
-        $student = new Student();
-        $student->nameStudent = $name;
-        $student->idGrade = $idGrade;
-        $student->birthday = $date;
-        $student->gender = $gender;
-        $student->available = $available;
-        $student->save();
-        return redirect(route('student.index'));
+
     }
 
     /**
@@ -116,7 +99,7 @@ class StudentController extends Controller
         $student->gender = $gender;
         $student->class_id = $grade;
         $student->save();
-        return redirect(route('student.index'));
+        return redirect(route('student.index'))->with("editstudent","1");
     }
 
     /**
@@ -129,22 +112,4 @@ class StudentController extends Controller
     {
         //
     }
-
-    // public function import()
-    // {
-    //     return view("student.import");
-    // }
-
-    // public function importprocess(Request $request)
-    // {
-    //     $file = $request->file('fileimport');
-    //     Excel::import(new StudentImport, $file );
-        
-    //     return redirect(route('student.index'));
-    // }
-
-    // public function export()
-    // {
-    //     return Excel::download(new StudentExport, 'student.xlsx');
-    // }
 }

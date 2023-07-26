@@ -18,18 +18,53 @@ class HistoryController extends Controller
      */
     public function index(Request $request)
     {
+        $userid = Session('id');
         $search = $request->get("search");
+        $status = $request->get("status");
+        $paymethod = $request->get("paymethod");
         $listStudent = Admin::where('role', '=' , 1);
         $listBook = Book::all();
-        $listBill = Bill::join("users", "bill.user_id", "=", "users.user_id")
-                        ->orderBy('bill_id', 'DESC')
-                        ->where("bill_id", "like", "%$search%")->paginate(10);
+        if($status != null){
+            if($paymethod != null){
+                $listBill = Bill::join("users", "bill.user_id", "=", "users.user_id")
+                                ->orderBy('bill_id', 'DESC')
+                                ->where("bill.user_id", $userid)
+                                ->where("bill_id", "like", "%$search%")
+                                ->where("status", $status)
+                                ->where("pay_method", $paymethod)
+                                ->paginate(10);
+            }else{
+                $listBill = Bill::join("users", "bill.user_id", "=", "users.user_id")
+                                ->orderBy('bill_id', 'DESC')
+                                ->where("bill.user_id", $userid)
+                                ->where("bill_id", "like", "%$search%")
+                                ->where("status", $status)
+                                ->paginate(10);
+            }
+        }else{
+            if($paymethod != null){
+                $listBill = Bill::join("users", "bill.user_id", "=", "users.user_id")
+                                ->orderBy('bill_id', 'DESC')
+                                ->where("bill.user_id", $userid)
+                                ->where("bill_id", "like", "%$search%")
+                                ->where("pay_method", $paymethod)
+                                ->paginate(10);
+            }else{
+                $listBill = Bill::join("users", "bill.user_id", "=", "users.user_id")
+                            ->orderBy('bill_id', 'DESC')
+                            ->where("bill.user_id", $userid)
+                            ->where("bill_id", "like", "%$search%")
+                            ->paginate(10);
+            }
+        }
         $billdt = BillDetail::join("book", "bill_detail.book_id", "=", "book.book_id")
                             ->where("bill_id", "like", "%$search%")
                             ->get(['bill_detail.*', 'book.*']);
         return view('history', [
             "listBill" => $listBill,
             "search" => $search,
+            "status" => $status,
+            "paymethod" => $paymethod,
             "listStudent" => $listStudent,
             "listBook" => $listBook,
             "billdt" => $billdt,

@@ -29,7 +29,7 @@
                             <?php foreach ($ListSubject as $subject): ?>
                             <tr>
                                 <td>{{ $subject -> subject_id }}</td>
-                                <td>{{ $subject -> name }}</td>
+                                <td><a href="{{ route('subject.edit', $subject ->subject_id) }}">{{ $subject -> name }}</a></td>
                                 <td class="text-right">
                                     <div class="dropdown">
                                         <a class="btn btn-sm btn-icon-only text-light" href="#"
@@ -37,14 +37,13 @@
                                             aria-haspopup="true" aria-expanded="false">
                                             <i class="fas fa-ellipsis-v"></i>
                                         </a>
-                                        <div
-                                            class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
                                             <a class="dropdown-item" href="{{ route('subject.edit', $subject ->subject_id) }}">Edit</a>
-                                            <form action="{{ route('subject.destroy', $subject ->subject_id) }}" method="post">
+                                            {{-- <form action="{{ route('subject.destroy', $subject ->subject_id) }}" method="post">
                                                 @csrf
                                                 @METHOD('DELETE')
                                                 <input type="submit" class="dropdown-item" value="Delete">
-                                            </form>
+                                            </form> --}}
                                         </div>
                                     </div>
                                 </td>

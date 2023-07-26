@@ -62,6 +62,7 @@
                         <thead class=" text-primary">
                             <tr>
                                 <th scope="col">ID</th>
+                                <th scope="col">Image</th>
                                 <th scope="col">Book</th>
                                 <th scope="col">Category</th>
                                 <th scope="col">Subject</th>
@@ -75,6 +76,13 @@
                             <?php foreach ($listBook as $book): ?>
                             <tr>
                                 <td>{{ $book -> book_id }}</td>
+								<td>
+                                    <div class="img-book2">
+                                        <a href="{{ route('book.edit', $book ->book_id) }}">
+                                            <img src="{{ asset('uploads/books/'.$book ->image)}}" alt="">
+                                        </a>
+                                    </div>
+								</td>
                                 <td><a href="{{ route('book.edit', $book ->book_id) }}">{{ $book -> book_name }}</a></td>
                                 <td>{{ $book -> category_name }}</td>
                                 <td>
@@ -91,7 +99,9 @@
                                 </td>
                                 <td>{{ $book -> major_name }}</td>
                                 <td>{{ $book -> qty }}</td>
-                                <td>{{ number_format($book -> price) }}đ</td>
+                                <td>
+                                    <p style="font-weight: 600;color: red;font-style: italic;">{{number_format($book->price)}}đ</p>
+                                </td>
                                 <td class="text-right">
                                     <div class="dropdown">
                                         <a class="btn btn-sm btn-icon-only text-light" href="#"

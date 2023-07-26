@@ -245,15 +245,26 @@
                 });
             }
             function UpdateItemCart(id){
-                $.ajax({
-                    url: "/UpdateItemCart/"+id+"/"+$("#input-qty-"+id).val(),
-                    type: "GET",
-                }).done(function(response) {
-                    RenderListCart(response)
-                    demo.showNotification('top','center','Update successful.')
-                });
+                if($("#input-qty-"+id).val() > 0 ){
+                    $.ajax({
+                        url: "/UpdateItemCart/"+id+"/"+$("#input-qty-"+id).val(),
+                        type: "GET",
+                    }).done(function(response) {
+                        RenderListCart(response)
+                        demo.showNotification('top','center','Update successful.')
+                    });
+                }else{
+                    $.ajax({
+                        url: "/UpdateItemCart/"+id+"/"+1,
+                        type: "GET",
+                    }).done(function(response) {
+                        RenderListCart(response)
+                        demo.showNotification('top','center','Update successful.')
+                    });
+                }
             }
             function Order(url){
+                demo.showNotification('top','center','I am creating an order, please wait a moment.')
                 $.ajax({
                     url: "/Order",
                     type: "GET",
@@ -267,9 +278,16 @@
                 var list = [];
                 $("table tbody tr td").each(function(){
                     $(this).find(".input-qty").each(function(){
-                        var element = { 
-                            key : $(this).data("id"),
-                            value : $(this).val()
+                        if($(this).val() > 0){
+                            var element = { 
+                                key : $(this).data("id"),
+                                value : $(this).val()
+                            }
+                        }else{
+                            var element = { 
+                                key : $(this).data("id"),
+                                value : 1
+                            }
                         }
                         list.push(element)
                     })
@@ -304,9 +322,12 @@
                     if(response == 2){
                         $("#status"+id).text("Cancelled");
                         demo.showNotification('top','center','Cancel order successful.')
-                    }else{
+                    }else if(response == 1){
                         $("#status"+id).text("Approved");
                         demo.showNotification('top','center','This order has been approved by admin.')
+                    }else if(response == 3){
+                        $("#status"+id).text("Cancelled");
+                        demo.showNotification('top','center','This order has been cancelled by admin.')
                     }
                 });
             }
@@ -341,37 +362,22 @@
                         $(".btn-after").text("This order has been approved");
                         $("#stt"+response[1]).text("Approved")
                         demo.showNotification('top','center','Approve order successful.')
-                    }else{
+                    }else if(response[0] == 2){
                         $(".btn-after").text("This order has been cancelled");
                         $("#stt"+response[1]).text("Cancelled")
                         demo.showNotification('top','center','Cancel order successful.')
+                    }else if(response[0] == 3){
+                        $(".btn-after").text("This order has been approved");
+                        $("#stt"+response[1]).text("Approved")
+                        demo.showNotification('top','center','This order has been approved by other person.')
+                    }else if(response[0] == 4){
+                        $(".btn-after").text("This order has been cancelled");
+                        $("#stt"+response[1]).text("Cancelled")
+                        demo.showNotification('top','center','This order has been cancelled by other person.')
+                    }else if(response[0] == 5){
+                        $(".btn-after").text("No more books in stock");
+                        demo.showNotification('top','center','No more books in stock.')
                     }
-                });
-            });
-            $(".editstudent").submit(function(event) {
-                event.preventDefault();
-                let post_url = $(this).attr("action");
-                let request_method = $(this).attr("method");
-                let form_data = $(this).serialize();
-                $.ajax({
-                    url: post_url,
-                    type: request_method,
-                    data: form_data
-                }).done(function(response) {
-                    demo.showNotification('top','center','Edit student successful.')
-                });
-            });
-            $(".editcourse").submit(function(event) {
-                event.preventDefault();
-                let post_url = $(this).attr("action");
-                let request_method = $(this).attr("method");
-                let form_data = $(this).serialize();
-                $.ajax({
-                    url: post_url,
-                    type: request_method,
-                    data: form_data
-                }).done(function(response) {
-                    demo.showNotification('top','center','Edit course successful.')
                 });
             });
             function RenderListCart(response){
@@ -391,6 +397,24 @@
                     }
                     $(this).parent().find('.input-qty').val(b)
                 })
+            }
+            var value = $("#hdnSession").data('value');
+            if(value == 0){
+                demo.showNotification('top','center','Payment success.')
+            }else if(value == 1 ){
+                demo.showNotification('top','center','Payment failed.')
+            }
+            var editclass = $("#editclass").data('value');
+            if(editclass == 1){
+                demo.showNotification('top','center','Edit class success.')
+            }
+            var editcourse = $("#editcourse").data('value');
+            if(editcourse == 1){
+                demo.showNotification('top','center','Edit course success.')
+            }
+            var editstudent = $("#editstudent").data('value');
+            if(editstudent == 1){
+                demo.showNotification('top','center','Edit student success.')
             }
         </script>
         @stack('js')

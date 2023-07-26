@@ -52,12 +52,12 @@ class AuthenticateController extends Controller
     		$request->session()->put('role', 0);
     		return redirect()->route('listbook.index');
     	} catch (Exception $e) {
-    		return Redirect::route('login')->with('error' , 'Sai mật khẩu hoặc tài khoản');
+    		return Redirect::route('login-user')->with('error' , 'Sai mật khẩu hoặc tài khoản');
     	}
     }
     public function logout(Request $request)
     {
         $request->session()->flush();
-        return Redirect::route('login');
+        return Redirect::route('welcome');
     }
 }

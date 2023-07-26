@@ -7,7 +7,7 @@
                 <div class="card-header">
                     <h5 class="title">{{ _('Edit Course') }}</h5>
                 </div>
-                <form class="editcourse" method="post" action="{{ route('course.update', $course->course_id ) }}" autocomplete="off">
+                <form method="post" action="{{ route('course.update', $course->course_id ) }}" autocomplete="off">
                     <div class="card-body">
                             @csrf
                             @method('put')

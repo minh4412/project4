@@ -52,8 +52,8 @@ class GradeController extends Controller
         $name = $request->get('class');
         $idCourse = $request->get('course');
         $grade = new Grade();
-        $grade->nameGrade = $name;
-        $grade->idCourse = $idCourse;
+        $grade->code = $name;
+        $grade->course_id = $idCourse;
         $grade->save();
         return redirect(route('class.index'));
     }
@@ -101,7 +101,7 @@ class GradeController extends Controller
         $grade->code = $class;
         $grade->course_id = $course;
         $grade->save();
-        return redirect(route('class.index'));
+        return redirect(route('class.index'))->with('editclass','1');
     }
 
     /**

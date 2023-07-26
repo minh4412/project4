@@ -13,6 +13,7 @@ use App\Http\Controllers\BookController;
 use App\Http\Controllers\ListBookController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\StatisticalController;
+use App\Http\Controllers\TestMailController;
 use App\Http\Controllers\HistoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\CheckLogin;
@@ -32,7 +33,7 @@ use Illuminate\Support\Facades\Mail;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 Route::get('/login',[AuthenticateController::class,'login'])->name('login');
 Route::get('/login-user',[AuthenticateController::class,'loginUser'])->name('login-user');
 Route::post('/login-process', [AuthenticateController::class, 'loginProcess'])->name('login-process');
@@ -58,8 +59,12 @@ Route::middleware([CheckLogin::class])->group(function(){
     Route::get('/CancelOrder/{id}',[CartController::class,'CancelOrder']);
     Route::post('/EditAll',[CartController::class,'EditAll']);
     Route::get('/DeleteAll',[CartController::class,'DeleteAll']);
+    Route::get('/testmail',[TestMailController::class,'testmail'])->name('testmail');
+    // Route::get('/mycart', [CartController::class,'index']);
     Route::get('/mycart', function () {
         return view('cart');
     });
+    Route::post('/epayment',[CartController::class,'epayment']);
+    Route::get('/payreturn',[CartController::class,'payreturn']);
     Route::resource('history',HistoryController::class);
 });

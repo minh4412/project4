@@ -12,9 +12,23 @@
 					{{-- <div class="col-4 text-right">
 						<a href="#" class="btn btn-sm btn-primary">Add Class</a>
 					</div> --}}
+                    {{-- <div class="col-2 text-right">
+                        <a href="{{ route('testmail') }}" style="color: white !important" class="btn btn-sm btn-primary">Test</a>
+                    </div> --}}
 					<div class="col-4 text-right">
 						<form action="">
 							<div style="display: flex" class="form-group">
+								<select name="paymethod" class="form-control" style="margin-right: 15px;">
+									<option style="color: #9A9A9A;" value="">All method</option>
+									<option style="color: #9A9A9A;" value="0"
+									@if (isset($paymethod) && $paymethod == 0 )
+										selected 
+									@endif>Payment on delivery</option>
+									<option style="color: #9A9A9A;" value="1"
+									@if (isset($paymethod) && $paymethod == 1 )
+										selected 
+									@endif>E-Payment</option>
+								</select>
 								<select name="status" class="form-control" style="margin-right: 15px;">
 									<option style="color: #9A9A9A;" value="">All Status</option>
 									<option style="color: #9A9A9A;" value="0"
@@ -49,6 +63,8 @@
 								<th scope="col">Date</th>
 								<th scope="col">Total Price</th>
 								<th scope="col">Status</th>
+								<th scope="col">Payment Method</th>
+								<th scope="col">Editor</th>
 								<th scope="col"></th>
 							</tr>
 						</thead>
@@ -58,8 +74,29 @@
 								<td>{{ $bill -> bill_id }}</td>
 								<td><a href="{{ route('bill.edit', $bill->bill_id) }}">{{ $bill -> name }}</a></td>
 								<td>{{ $bill -> order_date }}</td>
-								<td>{{ number_format($bill -> total_price) }}đ</td>
+								<td>
+									<p style="font-weight: 600;color: red;font-style: italic;">{{ number_format($bill -> total_price) }}đ</p></td>
 								<td id="stt{{$bill ->bill_id}}">{{ $bill -> StatusText }}</td>
+								<td><?php
+									if($bill -> pay_method == 0){
+										echo "Payment on delivery";
+									}else{
+										echo "E-Payment";
+									}
+								?></td>
+								<td>
+									<?php
+									foreach($listAdmin as $admin): 
+										if($admin->user_id == $bill->editor_id){
+											if($admin->role == 1){
+												echo $admin->name;
+											}else{
+												echo "User";
+											}
+										}
+									endforeach; 
+									?>
+								</td>
 								<td class="text-right">
 									<div class="dropdown">
 										<a class="btn btn-sm btn-icon-only text-light" href="#"

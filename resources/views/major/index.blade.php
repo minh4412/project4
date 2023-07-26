@@ -37,14 +37,8 @@
                                             aria-haspopup="true" aria-expanded="false">
                                             <i class="fas fa-ellipsis-v"></i>
                                         </a>
-                                        <div
-                                            class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
                                             <a class="dropdown-item" href="{{ route('major.edit', $major ->major_id) }}">Edit</a>
-                                            <form action="{{ route('major.destroy', $major ->major_id) }}" method="post">
-                                                @csrf
-                                                @METHOD('DELETE')
-                                                <input type="submit" class="dropdown-item" value="Delete">
-                                            </form>
                                         </div>
                                     </div>
                                 </td>

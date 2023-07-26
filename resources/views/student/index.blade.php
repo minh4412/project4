@@ -97,4 +97,7 @@
 		</div>
 	</div>
 </div>
+@if(Session("editstudent") != null)
+<input type="hidden" id="editstudent" data-value="1" />
+@endif
 @endsection
