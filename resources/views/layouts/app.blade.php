@@ -416,6 +416,14 @@
             if(editstudent == 1){
                 demo.showNotification('top','center','Edit student success.')
             }
+            var editbook = $("#editbook").data('value');
+            if(editbook == 1){
+                demo.showNotification('top','center','Edit book success.')
+            }
+            var addbook = $("#addbook").data('value');
+            if(addbook == 1){
+                demo.showNotification('top','center','Create book success.')
+            }
         </script>
         @stack('js')
     </body>

@@ -178,14 +178,14 @@ class BookController extends Controller
         $book->price = $price;
         $book->qty = $quantity;
         $book->qty_received = 0;
-        $book->major = $major;
+        $book->major_id = $major;
         $file = $request->file('book-image');
         $extention = $file->getClientOriginalExtension();
         $imagename = time().'.'.$extention;
         $file->move('uploads/books/',$imagename);
         $book->image = $imagename;
         $book->save();
-        return redirect(route('book.index'));
+        return redirect(route('book.index'))->with('addbook','1');
     }
 
     /**
@@ -241,7 +241,7 @@ class BookController extends Controller
         $book->subject_id = $subject;
         $book->price = $price;
         $book->qty = $quantity;
-        $book->major = $major;
+        $book->major_id = $major;
         if($request->hasFile('book-image')){
             $file = $request->file('book-image');
             $extention = $file->getClientOriginalExtension();
@@ -250,7 +250,7 @@ class BookController extends Controller
             $book->image = $imagename;
         }
         $book->save();
-        return redirect(route('book.index'));
+        return redirect(route('book.index'))->with('editbook','1');
     }
 
     /**

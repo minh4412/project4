@@ -51,7 +51,7 @@
 						</form>
 					</div>
                     <div class="col-2 text-right">
-                        <a href="{{ route('book.create') }}" class="btn btn-sm btn-primary">Add Book</a>
+                        <a href="{{ route('book.create') }}" class="btn btn-sm btn-primary">Create Book</a>
                     </div>
                 </div>
             </div>
@@ -144,4 +144,10 @@
         </div>
     </div>
 </div>
+@if(Session("editbook") != null)
+<input type="hidden" id="editbook" data-value="1" />
+@endif
+@if(Session("addbook") != null)
+<input type="hidden" id="addbook" data-value="1" />
+@endif
 @endsection

@@ -40,9 +40,9 @@ class MajorController extends Controller
      */
     public function store(Request $request)
     {
-        $name = $request->get('major');
+        $name = $request->get('name');
         $major = new Major();
-        $major->major_namename = $name;
+        $major->major_name = $name;
         $major->save();
         return redirect(route('major.index'));
     }
