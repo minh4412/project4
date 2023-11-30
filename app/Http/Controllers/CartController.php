@@ -89,11 +89,11 @@ class CartController extends Controller
             $dtbill->save();
         }
         $request->session()->forget('cart');
-        $detail = [
-            'title' => 'Notification email',
-            'messenge' => 'You have a new unprocessed order.'
-        ];
-        Mail::to("nguyentriminh505@gmail.com")->send(new SendAdmin($detail));
+        // $detail = [
+        //     'title' => 'Notification email',
+        //     'messenge' => 'You have a new unprocessed order.'
+        // ];
+        // Mail::to("nguyentriminh505@gmail.com")->send(new SendAdmin($detail));
         return view('cartdt');
     }
 

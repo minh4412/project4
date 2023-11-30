@@ -52,12 +52,12 @@
 </div>
 @if(Session("cart") != null)
 <div style="display: flex;justify-content: center;padding-top: 40px;">
-    <form action="{{url('/epayment')}}" method="POST">
+    {{-- <form action="{{url('/epayment')}}" method="POST">
         @csrf
         <button type="submit" name="redirect" style="padding: 10px 40px;color: white;margin-right:40px" class="btn btn-sm btn-primary">
             {{ __('E-payment') }}
         </button>
-    </form>
+    </form> --}}
     <button style="padding: 10px 40px;color: white;margin-left:40px" class="btn btn-sm btn-primary" id="search-button" data-toggle="modal" data-target="#popupOrder">
         {{ __('Order confirmation') }}
     </button>

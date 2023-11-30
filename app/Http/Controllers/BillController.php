@@ -174,7 +174,7 @@ class BillController extends Controller
                         $book->qty = (int)$qty_book[$i] - (int)$qty_bill[$i];
                         $book->save();
                     }
-                    Mail::to($student->email)->send(new SendToUser);
+                    // Mail::to($student->email)->send(new SendToUser);
                     return [1,$id];
                 }else{
                     $bill->status = 0;
@@ -182,7 +182,7 @@ class BillController extends Controller
                     return [5,$id];
                 }
             }else{
-                Mail::to($student->email)->send(new SendToUser2);
+                // Mail::to($student->email)->send(new SendToUser2);
                 return [2,$id];
             }
         }elseif($bill->status == 1){
