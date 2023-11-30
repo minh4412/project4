@@ -14,11 +14,11 @@
 						<form action="">
 							<div style="display: flex" class="form-group">
 								<select name="grade" class="form-control" style="margin-right: 15px;">
-                                    <option style="color: #9A9A9A;"  value="">All Class</option>
+                                    <option style="color: #9A9A9A;" value="">All Class</option>
                                     @foreach($listgrade as $g)
                                         <option style="color: #9A9A9A;"  value="{{ $g->class_id }}"
                                         @if (isset($grade) && $grade == $g->class_id )
-                                            selected 
+                                            selected
                                         @endif> {{ $g->code }}</option>
                                     @endforeach
 								</select>

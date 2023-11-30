@@ -70,9 +70,6 @@
                         <li class="nav-link">
                             <a href="{{ route('profile.index') }}" class="nav-item dropdown-item">{{ __('Profile') }}</a>
                         </li>
-                        <li class="nav-link">
-                            <a href="#" class="nav-item dropdown-item">{{ __('Settings') }}</a>
-                        </li>
                         <li class="dropdown-divider"></li>
                         <li class="nav-link">
                             <a href="{{ route('logout') }}" class="nav-item dropdown-item">{{ __('Log out') }}</a>

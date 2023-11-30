@@ -19,10 +19,18 @@ class StudentController extends Controller
         $search = $req->get('search');
         $grade = $req->get('grade');
         $listgrade = Grade::all();
-        $liststudent = Admin::join("class", "users.class_id", "=" , "class.class_id")
-                            ->where('name', 'like' , "%$search%")
-                            ->where('role', 0)
-                            ->paginate(10);
+        if($grade != null){
+            $liststudent = Admin::join("class", "users.class_id", "=" , "class.class_id")
+                                ->where('name', 'like' , "%$search%")
+                                ->where('users.class_id', $grade)
+                                ->where('role', 0)
+                                ->paginate(10);
+        }else{
+            $liststudent = Admin::join("class", "users.class_id", "=" , "class.class_id")
+                                ->where('name', 'like' , "%$search%")
+                                ->where('role', 0)
+                                ->paginate(10);
+        }
         $listgrade = Grade::all();
         return view("student.index", [
             "ListStudent" => $liststudent,
