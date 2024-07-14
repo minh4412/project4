@@ -57,29 +57,29 @@ $november1 = 0;
 $december1 = 0;
 foreach ($listbill as $bill) {
     if($bill ->status == 1){
-        if((int)date('m',strtotime($bill->order_date)) == 1 && (int)date('Y',time()) == ((int)date('Y',strtotime($bill->order_date))-1)){
+        if((int)date('m',strtotime($bill->order_date)) == 1 && ((int)date('Y',time())-1) == ((int)date('Y',strtotime($bill->order_date)))){
             $january1 += $bill->total_price;
-        }elseif((int)date('m',strtotime($bill->order_date)) == 2 && (int)date('Y',time()) == ((int)date('Y',strtotime($bill->order_date))-1)){
+        }elseif((int)date('m',strtotime($bill->order_date)) == 2 && ((int)date('Y',time())-1) == ((int)date('Y',strtotime($bill->order_date)))){
             $february1 += $bill->total_price;
-        }elseif((int)date('m',strtotime($bill->order_date)) == 3 && (int)date('Y',time()) == ((int)date('Y',strtotime($bill->order_date))-1)){
+        }elseif((int)date('m',strtotime($bill->order_date)) == 3 && ((int)date('Y',time())-1) == ((int)date('Y',strtotime($bill->order_date)))){
             $march1 += $bill->total_price;
-        }elseif((int)date('m',strtotime($bill->order_date)) == 4 && (int)date('Y',time()) == ((int)date('Y',strtotime($bill->order_date))-1)){
+        }elseif((int)date('m',strtotime($bill->order_date)) == 4 && ((int)date('Y',time())-1) == ((int)date('Y',strtotime($bill->order_date)))){
             $april1 += $bill->total_price;
-        }elseif((int)date('m',strtotime($bill->order_date)) == 5 && (int)date('Y',time()) == ((int)date('Y',strtotime($bill->order_date))-1)){
+        }elseif((int)date('m',strtotime($bill->order_date)) == 5 && ((int)date('Y',time())-1) == ((int)date('Y',strtotime($bill->order_date)))){
             $may1 += $bill->total_price;
-        }elseif((int)date('m',strtotime($bill->order_date)) == 6 && (int)date('Y',time()) == ((int)date('Y',strtotime($bill->order_date))-1)){
+        }elseif((int)date('m',strtotime($bill->order_date)) == 6 && ((int)date('Y',time())-1) == ((int)date('Y',strtotime($bill->order_date)))){
             $june1 += $bill->total_price;
-        }elseif((int)date('m',strtotime($bill->order_date)) == 7 && (int)date('Y',time()) == ((int)date('Y',strtotime($bill->order_date))-1)){
+        }elseif((int)date('m',strtotime($bill->order_date)) == 7 && ((int)date('Y',time())-1) == ((int)date('Y',strtotime($bill->order_date)))){
             $july1 += $bill->total_price;
-        }elseif((int)date('m',strtotime($bill->order_date)) == 8 && (int)date('Y',time()) == ((int)date('Y',strtotime($bill->order_date))-1)){
+        }elseif((int)date('m',strtotime($bill->order_date)) == 8 && ((int)date('Y',time())-1) == ((int)date('Y',strtotime($bill->order_date)))){
             $august1 += $bill->total_price;
-        }elseif((int)date('m',strtotime($bill->order_date)) == 9 && (int)date('Y',time()) == ((int)date('Y',strtotime($bill->order_date))-1)){
+        }elseif((int)date('m',strtotime($bill->order_date)) == 9 && ((int)date('Y',time())-1) == ((int)date('Y',strtotime($bill->order_date)))){
             $september1 += $bill->total_price;
-        }elseif((int)date('m',strtotime($bill->order_date)) == 10 && (int)date('Y',time()) == ((int)date('Y',strtotime($bill->order_date))-1)){
+        }elseif((int)date('m',strtotime($bill->order_date)) == 10 && ((int)date('Y',time())-1) == ((int)date('Y',strtotime($bill->order_date)))){
             $october1 += $bill->total_price;
-        }elseif((int)date('m',strtotime($bill->order_date)) == 11 && (int)date('Y',time()) == ((int)date('Y',strtotime($bill->order_date))-1)){
+        }elseif((int)date('m',strtotime($bill->order_date)) == 11 && ((int)date('Y',time())-1) == ((int)date('Y',strtotime($bill->order_date)))){
             $november1 += $bill->total_price;
-        }elseif((int)date('m',strtotime($bill->order_date)) == 12 && (int)date('Y',time()) == ((int)date('Y',strtotime($bill->order_date))-1)){
+        }elseif((int)date('m',strtotime($bill->order_date)) == 12 && ((int)date('Y',time())-1) == ((int)date('Y',strtotime($bill->order_date)))){
             $december1 += $bill->total_price;
         };
     };
@@ -98,29 +98,29 @@ $november2 = 0;
 $december2 = 0;
 foreach ($listbill as $bill) {
     if($bill ->status == 1){
-        if((int)date('m',strtotime($bill->order_date)) == 1 && (int)date('Y',time()) == ((int)date('Y',strtotime($bill->order_date))-2)){
+        if((int)date('m',strtotime($bill->order_date)) == 1 && ((int)date('Y',time())-2) == ((int)date('Y',strtotime($bill->order_date)))){
             $january2 += $bill->total_price;
-        }elseif((int)date('m',strtotime($bill->order_date)) == 2 && (int)date('Y',time()) == ((int)date('Y',strtotime($bill->order_date))-2)){
+        }elseif((int)date('m',strtotime($bill->order_date)) == 2 && ((int)date('Y',time())-2) == ((int)date('Y',strtotime($bill->order_date)))){
             $february2 += $bill->total_price;
-        }elseif((int)date('m',strtotime($bill->order_date)) == 3 && (int)date('Y',time()) == ((int)date('Y',strtotime($bill->order_date))-2)){
+        }elseif((int)date('m',strtotime($bill->order_date)) == 3 && ((int)date('Y',time())-2) == ((int)date('Y',strtotime($bill->order_date)))){
             $march2 += $bill->total_price;
-        }elseif((int)date('m',strtotime($bill->order_date)) == 4 && (int)date('Y',time()) == ((int)date('Y',strtotime($bill->order_date))-2)){
+        }elseif((int)date('m',strtotime($bill->order_date)) == 4 && ((int)date('Y',time())-2) == ((int)date('Y',strtotime($bill->order_date)))){
             $april2 += $bill->total_price;
-        }elseif((int)date('m',strtotime($bill->order_date)) == 5 && (int)date('Y',time()) == ((int)date('Y',strtotime($bill->order_date))-2)){
+        }elseif((int)date('m',strtotime($bill->order_date)) == 5 && ((int)date('Y',time())-2) == ((int)date('Y',strtotime($bill->order_date)))){
             $may2 += $bill->total_price;
-        }elseif((int)date('m',strtotime($bill->order_date)) == 6 && (int)date('Y',time()) == ((int)date('Y',strtotime($bill->order_date))-2)){
+        }elseif((int)date('m',strtotime($bill->order_date)) == 6 && ((int)date('Y',time())-2) == ((int)date('Y',strtotime($bill->order_date)))){
             $june2 += $bill->total_price;
-        }elseif((int)date('m',strtotime($bill->order_date)) == 7 && (int)date('Y',time()) == ((int)date('Y',strtotime($bill->order_date))-2)){
+        }elseif((int)date('m',strtotime($bill->order_date)) == 7 && ((int)date('Y',time())-2) == ((int)date('Y',strtotime($bill->order_date)))){
             $july2 += $bill->total_price;
-        }elseif((int)date('m',strtotime($bill->order_date)) == 8 && (int)date('Y',time()) == ((int)date('Y',strtotime($bill->order_date))-2)){
+        }elseif((int)date('m',strtotime($bill->order_date)) == 8 && ((int)date('Y',time())-2) == ((int)date('Y',strtotime($bill->order_date)))){
             $august2 += $bill->total_price;
-        }elseif((int)date('m',strtotime($bill->order_date)) == 9 && (int)date('Y',time()) == ((int)date('Y',strtotime($bill->order_date))-2)){
+        }elseif((int)date('m',strtotime($bill->order_date)) == 9 && ((int)date('Y',time())-2) == ((int)date('Y',strtotime($bill->order_date)))){
             $september2 += $bill->total_price;
-        }elseif((int)date('m',strtotime($bill->order_date)) == 10 && (int)date('Y',time()) == ((int)date('Y',strtotime($bill->order_date))-2)){
+        }elseif((int)date('m',strtotime($bill->order_date)) == 10 && ((int)date('Y',time())-2) == ((int)date('Y',strtotime($bill->order_date)))){
             $october2 += $bill->total_price;
-        }elseif((int)date('m',strtotime($bill->order_date)) == 11 && (int)date('Y',time()) == ((int)date('Y',strtotime($bill->order_date))-2)){
+        }elseif((int)date('m',strtotime($bill->order_date)) == 11 && ((int)date('Y',time())-2) == ((int)date('Y',strtotime($bill->order_date)))){
             $november2 += $bill->total_price;
-        }elseif((int)date('m',strtotime($bill->order_date)) == 12 && (int)date('Y',time()) == ((int)date('Y',strtotime($bill->order_date))-2)){
+        }elseif((int)date('m',strtotime($bill->order_date)) == 12 && ((int)date('Y',time())-2) == ((int)date('Y',strtotime($bill->order_date)))){
             $december2 += $bill->total_price;
         };
     };

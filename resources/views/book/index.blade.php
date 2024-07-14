@@ -112,11 +112,11 @@
                                         <div
                                             class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
                                             <a class="dropdown-item" href="{{ route('book.edit', $book ->book_id) }}">Edit</a>
-                                            <form action="{{ route('book.destroy', $book ->book_id) }}" method="post">
+                                            {{-- <form action="{{ route('book.destroy', $book ->book_id) }}" method="post">
                                                 @csrf
                                                 @METHOD('DELETE')
                                                 <input type="submit" class="dropdown-item" value="Delete">
-                                            </form>
+                                            </form> --}}
                                         </div>
                                     </div>
                                 </td>

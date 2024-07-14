@@ -264,7 +264,7 @@
                 }
             }
             function Order(url){
-                demo.showNotification('top','center','I am creating an order, please wait a moment.')
+                // demo.showNotification('top','center','I am creating an order, please wait a moment.')
                 $.ajax({
                     url: "/Order",
                     type: "GET",
