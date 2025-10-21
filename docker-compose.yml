@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: laravel_app
+    ports:
+      - "8000:80"
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      - db
+    env_file:
+      - .env.docker        # 👈 nạp biến môi trường từ file riêng
+    command: php artisan serve --host=0.0.0.0 --port=80
+
+  db:
+    image: mysql:8.0
+    container_name: laravel_db
+    restart: always
+    ports:
+      - "3307:3306"        # ⚠️ 3307 tránh trùng XAMPP
+    env_file:
+      - .env.docker        # 👈 nạp cùng file .env.docker
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:
