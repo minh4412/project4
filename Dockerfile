@@ -1,5 +1,5 @@
 # Sử dụng image PHP 8.2 chính thức có sẵn Composer
-FROM php:8.2-cli
+FROM php:8.0.30-cli
 
 # Cài các extension Laravel cần
 RUN apt-get update && apt-get install -y \
