@@ -2,7 +2,7 @@
 FROM php:8.0.30-cli
 
 # Cài các extension Laravel cần
-RUN apt-get update && apt-get install -y \
+RUN apt-get update --fix-missing && apt-get install -y \
     git \
     unzip \
     libpng-dev \
@@ -24,6 +24,9 @@ COPY . .
 
 # Cài đặt thư viện PHP
 RUN composer install --no-interaction --prefer-dist --optimize-autoloader
+
+#Cài thêm gettext vào Docker image
+RUN docker-php-ext-install gettext
 
 # Mở cổng 80
 EXPOSE 80
